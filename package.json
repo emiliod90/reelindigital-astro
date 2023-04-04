@@ -2,6 +2,7 @@
 	"name": "reelindigital-astro",
 	"type": "module",
 	"version": "0.0.1",
+	"license": "none",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",

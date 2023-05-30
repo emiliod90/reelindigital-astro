@@ -7,6 +7,27 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      console.log("returned dark")
+      return "dark";
+    }
+    return "light";
+    console.log("returned light")
+  })();
+
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+  window.localStorage.setItem("theme", theme);
+  console.log(theme)
+</script>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -43,9 +64,45 @@ const { title } = Astro.props;
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
       DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
   }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* --background-default: #27272a; */
+      --background-default: red;
+      --background-primary: #1b1b1b;
+      --background-secondary: #343434;
+      --text-primary: #fff;
+      --text-secondary: #cdcdcd;
+      --accent-primary: #5e9eff;
+      --text-link: #8cb4ff;
+      --button-primary-default: #fff;
+      --button-primary-hover: #cdcdcd;
+      --button-primary-active: #9e9e9e;
+      --button-primary-inactive: #fff;
+      --icon-primary: #fff;
+      --icon-secondary: #b3b3b3;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --background-default: blue;
+      --background-primary: #fff;
+      --background-secondary: #f9f9fb;
+      --text-primary: #1b1b1b;
+      --text-secondary: #4e4e4e;
+      --accent-primary: #0085f2;
+      --text-link: #0069c2;
+      --button-primary-default: #1b1b1b;
+      --button-primary-hover: #696969;
+      --button-primary-active: #9e9e9e;
+      --button-primary-inactive: #1b1b1b;
+      --icon-primary: #696969;
+      --icon-secondary: #b3b3b3;
+    }
+  }
   body {
     margin: 0;
-    background-color: #27272a;
+    background-color: var(--background-default);
   }
   @font-face {
     font-family: "rocket_wildness";

@@ -1,3 +1,13 @@
+# Notes:
+
+Website inspiration:
+https://thefutur.com/
+
+Dark Mode inspiration:
+https://stackoverflow.com/questions/56300132/how-to-override-css-prefers-color-scheme-setting
+https://stackoverflow.com/questions/61616785/unable-to-implement-dark-mode-in-html-website
+https://codepen.io/scrabill/pen/mdVNzYR
+
 # Astro Starter Kit: Basics
 
 ```
@@ -10,7 +20,6 @@ npm create astro@latest -- --template basics
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
 ![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
-
 
 ## 🚀 Project Structure
 

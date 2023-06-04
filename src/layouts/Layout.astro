@@ -4,163 +4,33 @@ export interface Props {
 }
 
 const { title } = Astro.props;
-// import { useState } from "preact/hooks";
 ---
 
 <!DOCTYPE html>
 <script is:inline>
-  // [systemTheme, setSystemTheme] = useState("light");
-
-  // console.log(mql);
-  // if (mql.matches) {
-  //   console.log("system is dark");
-  //   setSystemTheme("dark");
-  // } else {
-  //   console.log("system is light");
-  //   setSystemTheme("light");
-  // }
-
-  // function overideTheme(e) {
-  //   if (e.matches) {
-  //     // theme = "dark";
-  //     console.log("system changed to dark mode");
-  //     setSystemTheme("dark");
-  //     // setLocalTheme("dark");
-  //     // localStorage.setItem("theme", "dark");
-  //   } else {
-  //     // theme = "light";
-  //     console.log("system changed to light mode");
-  //     setSystemTheme("light");
-  //   }
-  // }
-
-  // mql.addEventListener("change", overideTheme);
-  // console.log("the desktop theme is:", theme);
-
-  // [websiteTheme, setWebsiteTheme] = useState("light");
-
-  function detectDarkTheme() {
-    if (
-      typeof localStorage !== "undefined" &&
-      localStorage.getItem("theme") == "dark"
-    ) {
-      console.log("returned local dark theme");
-      document.documentElement.setAttribute("data-theme", "dark");
-      // localStorage.getItem("theme");
-      // return localStorage.getItem("theme");
-    } else if (
-      typeof localStorage !== "undefined" &&
-      localStorage.getItem("theme") == "light"
-    ) {
-      console.log("returned local light theme");
-      document.documentElement.removeAttribute("data-theme");
-      // localStorage.getItem("theme");
-      // return localStorage.getItem("theme");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      console.log("returned dark prefered colour scheme");
-      localStorage.setItem("theme", "dark");
-      // return localStorage.getItem("theme");
-    } else {
-      console.log("No local or system theme found, defaulting to light");
-      localStorage.setItem("theme", "light");
-      document.documentElement.removeAttribute("data-theme");
-    }
+function detectDarkTheme() {
+  if (
+    typeof localStorage !== "undefined" &&
+    localStorage.getItem("theme") == "dark"
+  ) {
+    console.log("returned local dark theme");
+    document.documentElement.setAttribute("data-theme", "dark");
+  } else if (
+    typeof localStorage !== "undefined" &&
+    localStorage.getItem("theme") == "light"
+  ) {
+    console.log("returned local light theme");
+    document.documentElement.removeAttribute("data-theme");
+  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    console.log("returned dark prefered colour scheme");
+    localStorage.setItem("theme", "dark");
+  } else {
+    console.log("No local or system theme found, defaulting to light");
+    localStorage.setItem("theme", "light");
+    document.documentElement.removeAttribute("data-theme");
   }
-  detectDarkTheme();
-  // if (detectDarkTheme() === "dark") {
-  //   document.documentElement.classList.remove("dark");
-  // } else {
-  //   document.documentElement.classList.add("dark");
-  // }
-
-  // const theme = (() => {
-  //   if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-  //     console.log("returned local theme");
-  //     return localStorage.getItem("theme");
-  //   }
-  //   if (mql.matches) {
-  //     console.log("returned dark prefered colour scheme");
-  //     return "dark";
-  //   }
-  //   console.log("returned light");
-  //   return "light";
-  // })();
-
-  // if (theme === "light") {
-  //   document.documentElement.classList.remove("dark");
-  // } else {
-  //   document.documentElement.classList.add("dark");
-  // }
-  // window.localStorage.setItem("theme", theme);
-  // // document.querySelector("html").setAttribute("data-theme", theme);
-  // console.log("the website theme is:", theme);
-
-  // function overideTheme(e) {
-  //   if (e.matches) {
-  //     document.documentElement.classList.add("dark");
-  //   } else {
-  //     document.documentElement.classList.remove("dark");
-  //   }
-  //   window.localStorage.setItem("theme", theme);
-  //   console.log("the desktop theme changed to:", theme);
-  // }
-
-  // mql.addEventListener("change", overideTheme);
-  // console.log("the desktop theme is:", theme);
-
-  // From other
-  // const mql = window.matchMedia("(prefers-color-scheme: dark)");
-
-  // const preferences = !localStorage.getItem("theme")
-  //   ? "false"
-  //   : localStorage.getItem("theme");
-  // if (preferences === "false") {
-  //   console.log("default to system");
-  //   if (mql.matches) {
-  //     console.log("it is dark mode");
-  //     localStorage.setItem("theme", "dark");
-  //   } else {
-  //     console.log("it is light mode");
-  //     localStorage.setItem("theme", "light");
-  //   }
-  // } else if (preferences === "light") {
-  //   console.log("light");
-  //   document.querySelector("html").setAttribute("data-theme", "light");
-  // } else if (preferences === "dark") {
-  //   console.log("dark");
-  //   document.querySelector("html").setAttribute("data-theme", "dark");
-  // } else {
-  //   console.log("os-default theme");
-  // }
-
-  // const [localTheme, setLocalTheme] = useState(preferences);
-  // console.log(preferences);
-
-  // function darkThemeTest(e) {
-  //   if (e.matches) {
-  //     setLocalTheme("dark");
-  //     localStorage.setItem("theme", "dark");
-  //   } else {
-  //     setLocalTheme("light");
-  //     localStorage.setItem("theme", "light");
-  //   }
-  // }
-
-  // mql.addEventListener("change", darkThemeTest);
-
-  // function toggleTheme() {
-  //   if (localTheme === "dark") {
-  //     console.log("changing to light");
-  //     setLocalTheme("light");
-  //     localStorage.setItem("theme", "light");
-  //     document.querySelector("html").setAttribute("data-theme", "light");
-  //   } else {
-  //     console.log("changing to dark");
-  //     setLocalTheme("dark");
-  //     localStorage.setItem("theme", "dark");
-  //     document.querySelector("html").setAttribute("data-theme", "dark");
-  //   }
-  // }
+}
+detectDarkTheme();
 </script>
 <html lang="en">
   <head>

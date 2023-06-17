@@ -10,7 +10,15 @@ import Footer from "../layouts/Footer.astro";
 <Header />
 <main>
   <Hero />
-  <div class="block__grid"></div>
+  <section >
+  <div class="block__grid">
+    <div class="services__card">1</div>
+    <div class="services__card">2</div>
+    <div class="services__card">3</div>
+    <div class="services__card">4</div>
+
+  </div>
+</section>
   <div class="gallery_grid">
     <div class="card">
       <img
@@ -28,9 +36,26 @@ import Footer from "../layouts/Footer.astro";
 <style>
   main {
     display: grid;
+    max-width: 1200px;
+    margin: 0 auto
+  }
+  .block__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+  }
+  .services__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #353535;
+    font-size: 3rem;
+    color: #fffe;
   }
   section {
     width: 100%;
+    
     margin: 0 auto;
     padding-top: 5em;
     padding-bottom: 5em;

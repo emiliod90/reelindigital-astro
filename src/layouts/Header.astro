@@ -1,13 +1,14 @@
 ---
-import ThemeToggle from '../components/ThemeToggle'
+import ThemeToggle from "../components/ThemeToggle";
 ---
+
 <header class="header_block">
   <div class="header_container">
     <div class="logo_text">Reel in Digital</div>
     <nav>
       <ul class="nav_list">
-        <li><ThemeToggle client:load/></li>
-        <li><button>Button</button></li>
+        <li><ThemeToggle client:load /></li>
+        <!-- <li><button>Button</button></li> -->
         <li>Work</li>
         <li>About</li>
         <li>Contact</li>
@@ -37,16 +38,17 @@ import ThemeToggle from '../components/ThemeToggle'
     height: 56px;
     background-color: #121212;
     /* overflow-x: hidden; */
-    position: fixed;
-    z-index: 50;
-    bottom: 0;
+    position: sticky;
+    top: 0;
+    /* z-index: 50;
+    bottom: 0; */
     opacity: 0.85;
   }
-  @media (min-width: 400px) {
+  /* @media (min-width: 400px) {
     header {
       top: 0;
     }
-  }
+  } */
 
   .header_container {
     height: 100%;
@@ -69,6 +71,12 @@ import ThemeToggle from '../components/ThemeToggle'
     }
   }
   nav {
+    display: none;
+  }
+  @media (min-width: 400px) {
+    nav {
+      display: block;
+    }
   }
   ul {
     margin: 0;

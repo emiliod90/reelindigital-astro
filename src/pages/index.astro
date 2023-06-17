@@ -8,7 +8,22 @@ import Footer from "../layouts/Footer.astro";
 
 <Layout title="Reel in Digital" />
 <Header />
-<main><Hero /></main>
+<main>
+  <Hero />
+  <div class="block__grid"></div>
+  <div class="gallery_grid">
+    <div class="card">
+      <img
+        src="https://picsum.photos/seed/picsum/200/300"
+        alt="random1"
+        class="class__img"
+      />
+      <!-- <div class="card__content">
+        <h3 class="card__title">Title</h3>
+      </div> -->
+    </div>
+  </div>
+</main>
 <Footer />
 <style>
   main {
@@ -19,8 +34,6 @@ import Footer from "../layouts/Footer.astro";
     margin: 0 auto;
     padding-top: 5em;
     padding-bottom: 5em;
-    
-
   }
   .page-padding {
     padding-left: 2%;

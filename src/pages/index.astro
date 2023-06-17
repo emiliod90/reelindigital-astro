@@ -8,10 +8,22 @@ import Footer from "../layouts/Footer.astro";
 
 <Layout title="Reel in Digital" />
 <Header />
-<main><Hero /></main>
+<main><Hero /><section><div class="page-padding">Hello from Section</div></section></main>
 <Footer />
 <style>
   main {
     display: grid;
+  }
+  section {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    
+
+  }
+  .page-padding {
+    padding-left: 2%;
+    padding-right: 2%;
   }
 </style>

@@ -1,0 +1,39 @@
+---
+export interface Props {
+    title: string;
+    body: string;
+    href: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+<div class="container">
+    <div class="title"></div>
+    <li class="link-card">
+        <a href={href}>
+            <h2>
+                {title}
+                <span>&rarr;</span>
+            </h2>
+            <p>
+                {body}
+            </p>
+        </a>
+    </li>
+</div>
+<style>
+    section {
+        height: 100vh;
+    }
+    .container {
+        max-width: 90em;
+    }
+    .title {
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+</style>
